@@ -1,4 +1,10 @@
-Porting uCOSII to the raspberry pi B+/A+
+------------------------------Porting uCOSII to the raspberry pi B+/A+-----------------------------
+
+Configure your toolchain in makefile:
+For x86 host
+ARMGNU ?= ./tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf
+For x86_64 host
+ARMGNU ?= ./tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/arm-linux-gnueabihf
 
 To build, just type:
 make
