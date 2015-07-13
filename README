@@ -1,9 +1,9 @@
-------------------------------Porting uCOSII to the raspberry pi B+/A+-----------------------------
+---------------------Porting uCOSII to the raspberry pi B+/A+-----------------
 
 Configure your toolchain in makefile:
-For x86 host
+1) for x86 host
 ARMGNU ?= ./tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf
-For x86_64 host
+2) for x86_64 host
 ARMGNU ?= ./tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/arm-linux-gnueabihf
 
 To build, just type:
@@ -11,5 +11,4 @@ make
 
 Copy the kernel.img to the /boot of the SD card.
 
-Turn on the board, and then you will see UART message
-and the ACT LED blink.
+Turn on the board, and then you will see UART message and the ACT LED blink.
