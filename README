@@ -1,0 +1,9 @@
+Porting uCOSII to the raspberry pi
+
+To build, just type:
+make
+
+Copy the kernel.img to the /boot of the SD card.
+
+And turn on the board, and then yoi will see UART message
+and the ACT LED blink.
