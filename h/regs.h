@@ -2,33 +2,31 @@
 #ifndef REGS_H_
 #define REGS_H_
 
-#define GPFSEL0     0x20200000
-#define GPFSEL1     0x20200004
-#define GPFSEL2     0x20200008
-#define GPFSEL3     0x2020000C
-#define GPFSEL4     0x20200010
-#define GPSET0      0x2020001C
-#define GPSET1      0x20200020
-#define GPCLR0      0x20200028
-#define GPCLR1      0x2020002C
-#define GPPUD       0x20200094
-#define GPPUDCLK0   0x20200098
+#ifdef RPI2
+#include "bcm2836.h" /* Raspberriy Pi 2 */
+#else
+#include "bcm2835.h" /* Original B,A,A+,B+ */
+#endif
 
-#define AUX_ENABLES     0x20215004
-#define AUX_MU_IO_REG   0x20215040
-#define AUX_MU_IER_REG  0x20215044
-#define AUX_MU_IIR_REG  0x20215048
-#define AUX_MU_LCR_REG  0x2021504C
-#define AUX_MU_MCR_REG  0x20215050
-#define AUX_MU_LSR_REG  0x20215054
-#define AUX_MU_MSR_REG  0x20215058
-#define AUX_MU_SCRATCH  0x2021505C
-#define AUX_MU_CNTL_REG 0x20215060
-#define AUX_MU_STAT_REG 0x20215064
-#define AUX_MU_BAUD_REG 0x20215068
+#define GPFSEL1 	(PBASE+0x00200004)
+#define GPPUD      	(PBASE+0x00200094)
+#define GPPUDCLK0  	(PBASE+0x00200098)
+
+#define AUX_ENABLES     (PBASE+0x00215004)
+#define AUX_MU_IO_REG   (PBASE+0x00215040)
+#define AUX_MU_IER_REG  (PBASE+0x00215044)
+#define AUX_MU_IIR_REG  (PBASE+0x00215048)
+#define AUX_MU_LCR_REG  (PBASE+0x0021504C)
+#define AUX_MU_MCR_REG  (PBASE+0x00215050)
+#define AUX_MU_LSR_REG  (PBASE+0x00215054)
+#define AUX_MU_MSR_REG  (PBASE+0x00215058)
+#define AUX_MU_SCRATCH  (PBASE+0x0021505C)
+#define AUX_MU_CNTL_REG (PBASE+0x00215060)
+#define AUX_MU_STAT_REG (PBASE+0x00215064)
+#define AUX_MU_BAUD_REG (PBASE+0x00215068)
 
 //interrupt control regs
-#define BASE_INTC			(0x2000B200)
+#define BASE_INTC			(PBASE+0x0000B200)
 
 typedef struct {
 	unsigned long	IRQBasic;	// Pending 0
@@ -46,7 +44,7 @@ typedef struct {
 static volatile INTC_REGS * const intcRegs = (INTC_REGS *) (BASE_INTC);
 
 //timer regs
-#define portTIMER_BASE                    		( (unsigned long ) 0x2000B400 )
+#define portTIMER_BASE                    		( (unsigned long ) (PBASE+0x0000B400) )
 
 typedef struct _BCM2835_TIMER_REGS {
 	unsigned long LOD;

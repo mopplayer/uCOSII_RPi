@@ -20,7 +20,7 @@ unsigned int uart_recv ( void )
 
 void uart_send ( unsigned int c )
 {
-	int i;
+    //int i;
     while(1)
     {
         if(GET32(AUX_MU_LSR_REG)&0x20) break;
