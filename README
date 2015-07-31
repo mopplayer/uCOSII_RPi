@@ -19,7 +19,7 @@ User application in the usrApp folder, it used the bare-metal gpio implement.
 
 Turn on the board, and then you will see UART message (in userAppx) and the ACT LED blink.
 
-source tree:
+---Source tree---
 bsp: Board support package included the interrupt, UART, timer
 build: The built object
 h: header
@@ -28,4 +28,5 @@ lib: Standard C lib
 port: CPUs porting code
 ucos: uC/OSII source code v2.9
 usrApp: main entry for user application
-
+tools: Toolchain for compilation
+doc: uC/OSII docs v2.9
